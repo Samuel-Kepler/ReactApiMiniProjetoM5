@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 100px;
+  }
+  
+  .card {
+    display: flex;
+    justify-content: space-between;
+    background-color: blue;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 10px;
+  
+    & p {
+      color: #fff;
+      font-weight: bold;
+    }
+  
+    & span {
+      font-weight: normal;
+    }
+  
+    & button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  
+    & button:hover {
+      opacity: 0.4;
+    }
+  }
+  
