@@ -1,4 +1,3 @@
-
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -57,10 +56,10 @@ export default function SearchAppBar({ onSearch }) {
   const handleSearch = async (event) => {
     event.preventDefault();
     if (searchTerm.trim() === '') return;
-    
+
     try {
       const response = await api.get(`/event/name/${searchTerm}`);
-      onSearch(response.data); // Pass search results to Home
+      onSearch(response.data);
     } catch (error) {
       console.error('Error fetching events by name:', error);
     }
@@ -76,8 +75,7 @@ export default function SearchAppBar({ onSearch }) {
             color="inherit"
             aria-label="open drawer"
             sx={{ mr: 2 }}
-          >
-          </IconButton>
+          />
           <Typography
             variant="h6"
             noWrap

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
 import api from '../../services/api';
-import Card from '../../components/CardEvent'; 
+import Card from '../../components/CardEvents'; 
 import AppBar from '../../components/AppBar';
 
 function Home() {
@@ -13,8 +13,13 @@ function Home() {
   }
 
   const handleDelete = async (id) => {
-    await api.delete(`/event/${id}`); // Call API to delete event
+    await api.delete(`/event/${id}`); // Chama a API para deletar o evento
     setEvents(prevEvents => prevEvents.filter(event => event.id !== id)); 
+  };
+
+ 
+  const handleSearch = (searchResults) => {
+    setEvents(searchResults);
   };
 
   useEffect(() => {
@@ -23,7 +28,7 @@ function Home() {
 
   return (
     <div>
-      <AppBar />
+      <AppBar onSearch={handleSearch} /> {/* Passa a função de busca para a AppBar */}
       <div className='container'>
         {events.map((event) => (
           <Card key={event.id} event={event} onDelete={handleDelete} /> 
